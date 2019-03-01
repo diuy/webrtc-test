@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\examples\unityplugin\simple_peer_connection.cc" />
+    <ClCompile Include="..\examples\unityplugin\unity_plugin_apis.cc" />
+    <ClCompile Include="..\examples\unityplugin\video_observer.cc" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\examples\unityplugin\simple_peer_connection.h" />
+    <ClInclude Include="..\examples\unityplugin\unity_plugin_apis.h" />
+    <ClInclude Include="..\examples\unityplugin\video_observer.h" />
+  </ItemGroup>
+</Project>
