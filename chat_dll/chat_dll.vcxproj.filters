@@ -5,7 +5,7 @@
     <ClInclude Include="VideoPlayerGDI.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="chat_webrtc.cpp" />
-    <ClCompile Include="VideoPlayerGDI.cpp" />
+    <CustomBuild Include="chat_webrtc.cpp" />
+    <CustomBuild Include="VideoPlayerGDI.cpp" />
   </ItemGroup>
 </Project>

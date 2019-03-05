@@ -305,22 +305,17 @@ void AddTracks() {
 	}
 
 	rtc::scoped_refptr<webrtc::AudioTrackInterface> audio_track(
-		peer_connection_factory_->CreateAudioTrack(
-			kAudioLabel, peer_connection_factory_->CreateAudioSource(
-				cricket::AudioOptions())));
+		peer_connection_factory_->CreateAudioTrack( kAudioLabel, peer_connection_factory_->CreateAudioSource(cricket::AudioOptions())));
 	auto result_or_error = peer_connection_->AddTrack(audio_track, { kStreamId });
 	if (!result_or_error.ok()) {
 		RTC_LOG(LS_ERROR) << "Failed to add audio track to PeerConnection: "
 			<< result_or_error.error().message();
 	}
 
-	std::unique_ptr<cricket::VideoCapturer> video_device =
-		OpenVideoCaptureDevice();
+	std::unique_ptr<cricket::VideoCapturer> video_device = OpenVideoCaptureDevice();
 	if (video_device) {
 		rtc::scoped_refptr<webrtc::VideoTrackInterface> video_track_(
-			peer_connection_factory_->CreateVideoTrack(
-				kVideoLabel, peer_connection_factory_->CreateVideoSource(
-					std::move(video_device), nullptr)));
+			peer_connection_factory_->CreateVideoTrack( kVideoLabel, peer_connection_factory_->CreateVideoSource( std::move(video_device), nullptr)));
 		local_renderer_.reset(new VideoRenderer(hwndlocal, 1, 1, video_track_));
 
 		result_or_error = peer_connection_->AddTrack(video_track_, { kStreamId });
@@ -464,10 +459,10 @@ public:
 		 RTC_LOG(LERROR) << error;
 	}
 
-	 void AddRef() const{
+	 void AddRef() const override  {
 		ref_count_.IncRef();
 	}
-	 rtc::RefCountReleaseStatus Release()const {
+	 rtc::RefCountReleaseStatus Release()const override  {
 		const auto status = ref_count_.DecRef();
 		if (status == rtc::RefCountReleaseStatus::kDroppedLastRef) {
 			delete this;
@@ -515,7 +510,7 @@ void OpenSocket() {
 	if (ret == SOCKET_ERROR) {
 		closesocket(_socket); //关闭套接字
 		_socket = INVALID_SOCKET;
-		RTC_LOG(INFO) << "打开发送socket失败";
+		//RTC_LOG(INFO) << "打开发送socket失败";
 		return;
 	}
 
