@@ -149,15 +149,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <CustomBuild Include="chat_webrtc.cpp">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">call ninja.exe -C -f debug.ninja $(MSBuildProjectDirectory) chat_webrtc.obj</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">call ninja.exe -C $(MSBuildProjectDirectory) -f debug.ninja  Debug/chat_webrtc.obj</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(MSBuildProjectDirectory)/Debug/chat_webrtc.obj</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">call ninja.exe -C -f release.ninja $(MSBuildProjectDirectory) chat_webrtc.obj</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">call ninja.exe -C $(MSBuildProjectDirectory) -f release.ninja Release/chat_webrtc.obj</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(MSBuildProjectDirectory)/Release/chat_webrtc.obj</Outputs>
     </CustomBuild>
     <CustomBuild Include="VideoPlayerGDI.cpp">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">call ninja.exe -C -f debug.ninja $(MSBuildProjectDirectory) VideoPlayerGDI.obj</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">call ninja.exe -C $(MSBuildProjectDirectory) -f debug.ninja Debug/VideoPlayerGDI.obj</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(MSBuildProjectDirectory)/Debug/VideoPlayerGDI.obj</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">call ninja.exe -C -f release.ninja $(MSBuildProjectDirectory) VideoPlayerGDI.obj</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">call ninja.exe -C $(MSBuildProjectDirectory) -f release.ninja Release/VideoPlayerGDI.obj</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(MSBuildProjectDirectory)/Release/VideoPlayerGDI.obj</Outputs>
     </CustomBuild>
   </ItemGroup>
